@@ -1,0 +1,68 @@
+# Example configuration for Nscale backend in waldur-site-agent
+# Save this as waldur-site-agent-config.yaml
+
+sentry_dsn: ""
+
+offerings:
+  - name: "Nscale Compute Resources"
+    waldur_api_url: "https://waldur.example.com/api/"
+    waldur_api_token: "your_waldur_api_token_here"
+    waldur_offering_uuid: "uuid_of_your_marketplace_offering"
+
+    # STOMP/WebSocket settings for real-time events
+    stomp_enabled: true
+    mqtt_enabled: false
+    websocket_use_tls: false
+
+    # Backend type
+    backend_type: "nscale"
+
+    # Nscale-specific backend settings
+    backend_settings:
+      # Nscale API connection details
+      api_url: "https://api.nscale.example.com"
+      organization_id: "your-organization-id"
+      project_id: "your-project-id"
+      service_token: "your-service-token"
+
+      # Resource naming
+      resource_prefix: "waldur_"  # Prefix for resource names
+
+      # Default instance configuration
+      default_instance_type: "standard"  # Instance type/flavor
+      default_image_id: "ubuntu-22.04"  # Default image ID
+      default_network_id: "network-id"  # Default network ID (optional)
+      default_security_group_ids:  # Default security groups (optional)
+        - "sg-default"
+        - "sg-allow-ssh"
+
+      # Backend ID uniqueness checking (optional, defaults to False)
+      check_backend_id_uniqueness: false
+      check_all_offerings: false
+
+    # Component mapping between Waldur and Nscale
+    # This defines how Waldur marketplace components map to Nscale resource specifications
+    backend_components:
+      cpu:
+        measured_unit: "core-hours"
+        unit_factor: 1
+        accounting_type: "limit"
+        label: "CPU Cores"
+
+      memory:
+        measured_unit: "GB-hours"
+        unit_factor: 1
+        accounting_type: "limit"
+        label: "Memory"
+
+      storage:
+        measured_unit: "GB"
+        unit_factor: 1
+        accounting_type: "limit"
+        label: "Storage"
+
+      gpu:
+        measured_unit: "gpu-hours"
+        unit_factor: 1
+        accounting_type: "limit"
+        label: "GPU Hours"
