@@ -14,7 +14,6 @@ class BackendType(Enum):
     MOAB = "moab"
     MUP = "mup"
     CROIT_S3 = "croit_s3"
-    NSCALE = "nscale"
     CUSTOM = "custom"
     UNKNOWN = "unknown"
 

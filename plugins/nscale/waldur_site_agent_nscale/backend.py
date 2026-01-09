@@ -16,7 +16,7 @@ from typing import Optional
 from waldur_api_client.models.resource import Resource as WaldurResource
 from waldur_api_client.models.resource_limits import ResourceLimits
 
-from waldur_site_agent.backend import BackendType, backends
+from waldur_site_agent.backend import backends
 from waldur_site_agent.backend.structures import BackendResourceInfo
 from waldur_site_agent.backend.exceptions import BackendError
 from waldur_site_agent_nscale.client import NscaleClient
@@ -35,7 +35,7 @@ class NscaleBackend(backends.BaseBackend):
     def __init__(self, nscale_settings: dict, nscale_components: dict[str, dict]) -> None:
         """Init backend info and creates a corresponding client."""
         super().__init__(nscale_settings, nscale_components)
-        self.backend_type = BackendType.NSCALE.value
+        self.backend_type = "nscale"
 
         # Required settings
         required_settings = ["api_url", "organization_id", "project_id", "service_token"]
