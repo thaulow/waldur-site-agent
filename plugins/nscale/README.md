@@ -49,7 +49,7 @@ Each component can have:
 
 ## Example Configuration
 
-See `examples/nscale-config-example.yaml` for a complete configuration example.
+See `examples/nscale-config.yaml` in this plugin directory for a complete configuration example.
 
 ## API Documentation
 

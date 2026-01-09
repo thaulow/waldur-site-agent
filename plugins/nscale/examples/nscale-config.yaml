@@ -1,5 +1,6 @@
 # Example configuration for Nscale backend in waldur-site-agent
-# Save this as waldur-site-agent-config.yaml
+# Copy this file to your desired location and name it waldur-site-agent-config.yaml
+# Then update it with your actual configuration values
 
 sentry_dsn: ""
 
