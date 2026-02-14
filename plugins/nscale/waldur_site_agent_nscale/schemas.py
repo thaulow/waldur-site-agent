@@ -54,6 +54,14 @@ class NscaleBackendSettingsSchema(PluginBackendSettingsSchema):
     default_security_group_ids: Optional[list[str]] = Field(
         default=None, description="List of default security group IDs"
     )
+    resource_type: Optional[str] = Field(
+        default="instance",
+        description="Resource type to manage: 'instance' (default) or 'cluster'",
+    )
+    identity_api_url: Optional[str] = Field(
+        default=None,
+        description="Base URL for NScale Identity API (for user management)",
+    )
 
     @field_validator("api_url")
     @classmethod

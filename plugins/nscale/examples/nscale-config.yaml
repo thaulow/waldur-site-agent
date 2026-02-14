@@ -21,10 +21,13 @@ offerings:
     # Nscale-specific backend settings
     backend_settings:
       # Nscale API connection details
-      api_url: "https://api.nscale.example.com"
+      api_url: "https://compute.nks.europe-west4.nscale.com"
       organization_id: "your-organization-id"
       project_id: "your-project-id"
       service_token: "your-service-token"
+
+      # NScale Identity Service (for user management)
+      identity_api_url: "https://identity.nks.europe-west4.nscale.com"  # Optional
 
       # Resource naming
       resource_prefix: "waldur_"  # Prefix for resource names

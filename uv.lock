@@ -15,6 +15,7 @@ members = [
     "waldur-site-agent-harbor",
     "waldur-site-agent-moab",
     "waldur-site-agent-mup",
+    "waldur-site-agent-nscale",
     "waldur-site-agent-okd",
     "waldur-site-agent-rancher",
     "waldur-site-agent-slurm",
@@ -1602,6 +1603,17 @@ requires-dist = [{ name = "waldur-site-agent", editable = "." }]
 name = "waldur-site-agent-mup"
 version = "0.7.0"
 source = { editable = "plugins/mup" }
+dependencies = [
+    { name = "waldur-site-agent" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "waldur-site-agent", editable = "." }]
+
+[[package]]
+name = "waldur-site-agent-nscale"
+version = "0.1.0"
+source = { editable = "plugins/nscale" }
 dependencies = [
     { name = "waldur-site-agent" },
 ]
